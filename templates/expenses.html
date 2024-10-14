@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <title>Expense Entry</title>
+  </head>
+  <body>
+    {% include 'partials/_header.html' %}
+    <div class="main-content">
+      <h1 class="text-center">Enter Your Expenses</h1>
+      <form id="expense-form" class="expense-form">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" step="0.01" required>
+        
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="Food">Food</option>
+          <option value="Transportation">Transportation</option>
+          <option value="Entertainment">Entertainment</option>
+          <!-- Add more categories as needed -->
+        </select>
+        
+        <label for="description">Description (optional):</label>
+        <textarea id="description" name="description"></textarea>
+        
+        <button type="submit" class="bg-button-bg hover:bg-button-hover text-white font-bold py-2 px-4 rounded">Submit</button>
+      </form>
+      <div id="message"></div>
+      <div class="recent-expenses">
+        <h2>Recent Expenses</h2>
+        <ul id="expenses-list">
+          {% for expense in expenses %}
+            <li>{{ expense.date.strftime('%Y-%m-%d') }} - {{ expense.category }} - ${{ "%.2f"|format(expense.amount) }} - {{ expense.description }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="import-statement">
+        <h2>Import Bank Statement</h2>
+        <form id="import-form" enctype="multipart/form-data">
+          <input type="file" id="statement-file" name="file" accept=".csv">
+          <button type="submit">Import</button>
+        </form>
+        <div id="import-message"></div>
+      </div>
+    </div>
+    <script src="/static/js/expenses.js"></script>
+  </body>
+</html>
+</html>

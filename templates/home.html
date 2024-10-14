@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="icon" href="https://storage.googleapis.com/lazy-icons/not-found-placeholder.webp" type="image/x-icon">
+    <title>Financial Tracker</title>
+  </head>
+  <body>
+    {% include 'partials/_header.html' %}
+    <div class="main-content">
+      <div class="text-center py-10">
+        <h1 class="text-3xl font-bold mb-4">Welcome to Your Financial Tracker</h1>
+        <p class="mb-4">Track your daily expenses and improve your savings with ease.</p>
+        <a href="/expenses" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Start Tracking Expenses
+        </a>
+        <div class="mt-8">
+          <h2 class="text-2xl font-semibold mb-2">Features</h2>
+          <ul class="list-disc list-inside text-left max-w-md mx-auto">
+            <li>Track daily expenses with ease</li>
+            <li>Import bank statements</li>
+            <li>View recent expenses</li>
+          </ul>
+        </div>
+        <div class="mt-8">
+          <h2 class="text-2xl font-semibold mb-2">Download Project</h2>
+          <p class="mb-4">To download this project, click the button below:</p>
+          <a href="#" id="download-link" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Download Project
+          </a>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/home.js"></script>
+  </body>
+</html>
